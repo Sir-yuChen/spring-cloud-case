@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cloud-case</artifactId>
+        <groupId>com.zy.cloud</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>cloud-case-config-client</artifactId>
+    <name>cloud-case-config-client</name>
+    <dependencies>
+        <!--spring-cloud客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--
+            当我们在GitHub上修改配置文件内容，刷新配置中心服务端Server，发现S服务端erver配置中心立刻响应并刷新了配置信息，
+            但是，我们刷新客户端Client，发现没有任何响应，配置信息仍然是原来的配置信息。总不能每次远端修改了配置文件后，
+            客户端都需要重启来进行对配置信息的重新加载对吧，针对这个问题，我们需要使用动态刷新。只需要在客户端Client，
+            加上actuator监控，我们需要在客户端Client的pom文件中加入这个依赖，
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+
+    </dependencies>
+</project>

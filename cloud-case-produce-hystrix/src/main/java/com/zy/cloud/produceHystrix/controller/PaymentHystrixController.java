@@ -101,10 +101,17 @@ public class PaymentHystrixController {
      * @return
      */
     @GetMapping("/payment/hystrix/timeout/{id}/{timeNumber}")
-    @HystrixCommand//默认的fallback注解
+//    @HystrixCommand//默认的fallback注解
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id, @PathVariable("timeNumber") Integer timeNumber) {
         String result = paymentPojoService.paymentInfo_TimeOut(id, timeNumber);
         logger.info("*********************result:" + result);
+        return result;
+
+    }
+
+    @GetMapping("/payment/hystrix/paymentCircuitBreaker/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = paymentPojoService.paymentCircuitBreaker(id);
         return result;
 
     }

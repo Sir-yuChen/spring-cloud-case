@@ -18,4 +18,6 @@ public interface PaymentHystrixService extends IService<PaymentPojo> {
 
     String paymentInfo_TimeOut(Integer id, Integer timeNumber);
 
+    String paymentCircuitBreaker(Integer id);
+
 }

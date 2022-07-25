@@ -15,6 +15,9 @@
         <module>cloud-case-consumer-openFeign</module>
         <module>cloud-case-produce-hystrix</module>
         <module>cloud-case-consumer-hystrix</module>
+        <module>cloud-case-gateway</module>
+        <module>cloud-case-config-center</module>
+        <module>cloud-case-config-client</module>
     </modules>
     <!-- 首先修改打包方式 -->
     <packaging>pom</packaging>

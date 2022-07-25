@@ -1,4 +1,4 @@
-package com.zy.cloud.consumer.config.myRule;
+package com.zy.cloud.consumer.config;
 
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractLoadBalancerRule;

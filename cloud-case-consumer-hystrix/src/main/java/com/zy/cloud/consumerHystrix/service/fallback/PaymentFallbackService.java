@@ -17,11 +17,16 @@ public class PaymentFallbackService implements PaymentHystrixService {
 
     @Override
     public String paymentInfo_TimeOut(Integer id, Integer timeNumber) {
-        return "PaymentFallbackService fall  TimeOut 服务器出现故障,o(╥﹏╥)o";
+        return "PaymentFallbackService 降级 fall  TimeOut 服务器出现故障,o(╥﹏╥)o";
     }
 
     @Override
     public String paymentInfo_OK(Integer id) {
-        return "PaymentFallbackService fall  OK 服务器出现故障,o(╥﹏╥)o";
+        return "PaymentFallbackService 降级 fall  OK 服务器出现故障,o(╥﹏╥)o";
+    }
+
+    @Override
+    public String paymentCircuitBreaker(Integer id) {
+        return "PaymentFallbackService 降级 fall  paymentCircuitBreaker 服务器出现故障,o(╥﹏╥)o";
     }
 }

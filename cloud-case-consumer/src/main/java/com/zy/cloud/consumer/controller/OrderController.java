@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OrderController {
     //调用生产者的 服务名
-    public static final String PAYMENT_URL = "http://cloud-cas-produce";
+    public static final String PAYMENT_URL = "http://cloud-case-produce";
 
     @Autowired
     private RestTemplate restTemplate;

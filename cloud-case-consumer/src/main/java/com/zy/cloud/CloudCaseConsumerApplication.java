@@ -1,6 +1,6 @@
 package com.zy.cloud;
 
-import com.zy.cloud.consumer.config.myRule.MyselfRule;
+import com.zy.cloud.consumer.config.MyselfRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -13,7 +13,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableEurekaClient
 //name为生产者服务的服务名称  configuration为配置类的类名
-@RibbonClient(name = "CLOUD-CAS-PRODUCE", configuration = MyselfRule.class)
+@RibbonClient(name = "CLOUD-CASE-PRODUCE", configuration = MyselfRule.class)
 public class CloudCaseConsumerApplication {
     public static void main(String[] args) {
         SpringApplication.run(CloudCaseConsumerApplication.class, args);
