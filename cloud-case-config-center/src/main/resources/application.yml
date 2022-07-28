@@ -6,8 +6,8 @@ spring:
       server:
         git:
           uri: https://gitee.com/Sir-yuChen/springcloud-config/  #GitHub上复制的项目地址
-          username: Sir-yuChen
-          password: zy18739473138
+          username: xxxx
+          password: xxxx
           skipSslValidation: true # 跳过ssl认证
           force-pull: true
           search-paths: cloud-case
