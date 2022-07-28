@@ -11,11 +11,6 @@
     <artifactId>cloud-case-config-client</artifactId>
     <name>cloud-case-config-client</name>
     <dependencies>
-        <!--spring-cloud客户端-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -24,12 +19,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+<!--        springcloud config client 注意一定不要引错包了-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-            <scope>compile</scope>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-
+        <!--添加消息总线RabbitMQ支持 springcloud Bus-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
         <!--
             当我们在GitHub上修改配置文件内容，刷新配置中心服务端Server，发现S服务端erver配置中心立刻响应并刷新了配置信息，
             但是，我们刷新客户端Client，发现没有任何响应，配置信息仍然是原来的配置信息。总不能每次远端修改了配置文件后，

@@ -11,7 +11,37 @@ spring:
     url: jdbc:mysql://localhost:3306/cloud?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
-
+  # springcloud stream 整合
+  cloud:
+    stream:
+      # 绑定mq信息，这里我们绑定的是rabbitmq
+      binders:
+        # 给这个binder起个名字
+        spring-clould-stream-binder:
+          # mq的类型，如果是kafka的话就是kafka
+          type: rabbit
+          # 配置mq的信息
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      # 这里就是将通道与binder进行绑定
+      bindings:
+        # 定义output，因为我们是消息生产者，需要将消息写到channel中
+        output:
+          # 使用消息队列名字，在kafka就是topic的名字，然后rabbitmq的话就是Exchange 的名字
+          destination: springCloudStreamExchange
+          # 传输内容的格式，也就是消息的格式，如果是json的话 application/json
+          content-type: text/plain
+          # 绑定的binder
+          binder: spring-clould-stream-binder
+          # 将消息发送固定组
+          group: A
+  profiles:
+    active: prod
 #mybatis plus
 mybatis-plus:
   #  config-location: classpath:/mybatis/mybatis-config.xml
@@ -36,4 +66,9 @@ eureka:
     instance-id: produce${server.port}
     #访问路径可以显示ip地址
     prefer-ip-address: true
-
+    lease-renewal-interval-in-seconds: 2 # 设置心跳间隔【默认30s】
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+logging:
+  file:
+    path: D:/elasticsearch/logs
+  config: classpath:logback-spring.xml

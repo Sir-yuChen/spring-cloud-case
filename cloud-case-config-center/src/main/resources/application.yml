@@ -5,14 +5,27 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/Sir-yuChen/springcloud-config.git  #GitHub上复制的项目地址
+          uri: https://gitee.com/Sir-yuChen/springcloud-config/  #GitHub上复制的项目地址
           username: Sir-yuChen
           password: zy18739473138
           skipSslValidation: true # 跳过ssl认证
           force-pull: true
-      #          search-paths:  #搜索目录
-#            - cloud-case
-      label: main   #读取分支
+          search-paths: cloud-case
+          default-label: main
+  #rabbitmq支持springcloud bus
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  profiles:
+    active: prod
+# 暴露总线刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
 #注册中心，eureka
 eureka:
   client:
@@ -30,4 +43,10 @@ eureka:
     prefer-ip-address: true
 
 server:
-  port: 8022
+  port: 8020
+
+logging:
+  file:
+    path: D:/elasticsearch/logs
+  config: classpath:logback-spring.xml
+

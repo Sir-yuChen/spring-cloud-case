@@ -18,6 +18,8 @@ public class GatewyConfig {
         //uri 中 lb://服务名  代表从注册中心动态获取请求服务的地址
         routes.route("cloud-case-produce-hystrix", r -> r.path("/payment/hystrix/**").uri("lb://cloud-case-produce-hystrix")).build();
         routes.route("cloud-case-produce", r -> r.path("/payment/get/**").uri("lb://cloud-case-produce")).build();
+        routes.route("cloud-case-consumer", r -> r.path("/consumer/**").uri("lb://cloud-case-consumer")).build();
+        routes.route("cloud-case-consumer-openFeign", r -> r.path("/consumerFegin/**").uri("lb://cloud-case-consumer-openFeign")).build();
         return routes.build();
     }
 

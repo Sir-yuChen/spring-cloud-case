@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: cloud-case-gateway
+  profiles:
+    active: prod
+# 路由断言 配置文件格式
 #  cloud:
 #    gateway:
 #      routes:
@@ -32,3 +35,8 @@ eureka:
     instance-id: cloudCaseGateway${server.port}
     #访问路径可以显示ip地址
     prefer-ip-address: true
+
+logging:
+  file:
+    path: D:/elasticsearch/logs
+  config: classpath:logback-spring.xml

@@ -41,6 +41,8 @@
         <mybatis.plus.generator.version>3.3.0</mybatis.plus.generator.version>
         <freemarker.version>2.3.28</freemarker.version>
         <velocity.version>2.0</velocity.version>
+        <logstash.logback.encoder>6.1</logstash.logback.encoder>
+        <skywalking.apm.toolkit.version>8.11.0</skywalking.apm.toolkit.version>
     </properties>
 
     <!--版本管理-->
@@ -154,6 +156,24 @@
                 <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
             </dependency>
+
+            <!-- skywalking toolkit -->
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-trace</artifactId>
+                <version>${skywalking.apm.toolkit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-logback-1.x</artifactId>
+                <version>${skywalking.apm.toolkit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash.logback.encoder}</version>
+            </dependency>
+
 
         </dependencies>
 

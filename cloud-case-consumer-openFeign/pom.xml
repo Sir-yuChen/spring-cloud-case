@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cloud-case-consumer-openFeign</artifactId>
     <name>cloud-case-consumer-openFeign</name>
-    <description>消费者-openFegin调用方式</description>
 
     <dependencies>
         <dependency>

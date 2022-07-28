@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: cloud-case-consumer-hystrix
+  profiles:
+    active: prod
 
 #注册中心，eureka
 eureka:
@@ -25,3 +27,8 @@ ribbon:
   ReadTimeout: 5000
   # 指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 5000
+
+logging:
+  file:
+    path: D:/elasticsearch/logs
+  config: classpath:logback-spring.xml

@@ -1,0 +1,7 @@
+logging:
+  file:
+    path: D:/elasticsearch/logs
+  config: classpath:logback-spring.xml
+spring:
+  profiles:
+    active: prod

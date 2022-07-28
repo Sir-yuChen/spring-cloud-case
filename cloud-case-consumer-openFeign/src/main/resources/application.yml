@@ -3,9 +3,11 @@ server:
 spring:
   application:
     name: cloud-case-consumer-openFeign
+  profiles:
+    active: prod
 eureka:
   client:
-    register-with-eureka: false
+    register-with-eureka: true
     fetch-registry: true
     service-url:
       #集群配置
@@ -26,3 +28,6 @@ logging:
   level:
     # feign日志以什么级别监控哪个接口
     com.zy.cloud.openFeign.service.PaymentFeginService: info
+  file:
+    path: D:/elasticsearch/logs
+  config: classpath:logback-spring.xml

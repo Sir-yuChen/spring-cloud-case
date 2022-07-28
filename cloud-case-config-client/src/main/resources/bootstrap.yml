@@ -1,7 +1,4 @@
-server:
-  port: 8021
 #bootstrap.yml 是系统级别的，加载优先级高于 application.yml ，负责从外部加载配置并解析
-
 spring:
   application:
     name: cloud-case-config-client
@@ -9,9 +6,15 @@ spring:
     #Config客户端配置
     config:
       label: main #分支名称
-      name: config #配置文件名称  config-dev.yml 中的 config
-      uri: http://localhost:8022 #配置中心地址
+#      uri: http://localhost:8020/ #配置中心地址     service-id 服务发现二选一配置即可【建议使用服务名】
       profile: dev  # config-dev.yml 中的 dev 环境名
+      name: cloud-case-config-client
+      discovery:
+        enabled: true
+        service-id: CLOUD-CASE-CONFIG-CENTER # 指定配置中心的service-id， 便于扩展为高可用配置集群，不区分大小写
+      server:
+        git:
+          search-paths: cloud-case
 
 #注册中心，eureka
 eureka:
@@ -28,10 +31,3 @@ eureka:
     instance-id: ConfigClient${server.port}
     #访问路径可以显示ip地址
     prefer-ip-address: true
-
-# 暴露监控端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"

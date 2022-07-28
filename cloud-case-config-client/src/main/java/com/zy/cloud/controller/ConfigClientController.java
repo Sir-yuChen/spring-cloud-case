@@ -20,6 +20,7 @@ public class ConfigClientController {
 
     @GetMapping("/servicePort")
     public String getConfigInfo() {
+        System.out.println("================》 获取远程配置");
         return "远程获取到的配置：" + configInfo + "-----" + configVersion;
     }
 }
