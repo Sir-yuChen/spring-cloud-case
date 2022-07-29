@@ -13,6 +13,4 @@ public interface PaymentFeginService {
 
     @GetMapping("/payment/get/{id}")
     public ApiReturn queryById(@PathVariable("id") Long id);
-
-
 }

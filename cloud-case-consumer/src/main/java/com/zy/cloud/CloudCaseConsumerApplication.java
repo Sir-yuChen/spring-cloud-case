@@ -11,6 +11,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 /**
  * @author Administrator
  */
+//由于在common公共组件中导入了mysql连接包，所有的服务又要导入公共组件所有在启东时排除DataSourceAutoConfiguration
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableEurekaClient
 @EnableDiscoveryClient

@@ -16,9 +16,6 @@ import java.util.List;
 
 /**
  * PaymentController
- *
- * @author zy
- * @since 2022-07-21
  */
 @RestController
 public class PaymentController {

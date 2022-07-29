@@ -14,7 +14,7 @@ logging:
     path: D:/elasticsearch/logs
   config: classpath:logback-spring.xml
 spring:
-  profiles:
-    active: prod
   application:
     name: cloud-case-eureka-server
+  profiles:
+    active: prod

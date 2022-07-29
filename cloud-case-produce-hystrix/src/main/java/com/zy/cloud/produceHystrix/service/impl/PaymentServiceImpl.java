@@ -85,18 +85,14 @@ public class PaymentServiceImpl extends ServiceImpl<PaymentMapper, PaymentPojo> 
         String serialNumber = IdUtil.simpleUUID();
         return Thread.currentThread().getName() + "\t" + "调用成功，流水号: " + serialNumber;
     }
-//兜底降级的方法
+
+    //兜底降级的方法
     public String paymentCircuitBreaker_fallback(Integer id) {
         return "id 不能负数，请稍后再试，/(ㄒoㄒ)/~~   id: " + id;
     }
     /*
-    *
     * 断路器的窗口期内能够容忍的错误百分比阈值，默认为50（也就是说默认容忍50%的错误率）。打个比方，假如一个窗口期内，发生了100次服务请求，其中50次出现了错误。
     * 在这样的情况下，断路器将会被打开。在该窗口期结束之前，即使第51次请求没有发生异常，也将被执行fallback逻辑。
-    *
-    *
     * */
-
-
 }
 
