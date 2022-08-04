@@ -23,11 +23,9 @@ public class GatewyConfig {
         return routes.build();
     }
 
-
     @Bean
     public TokenFilter tokenFilter() {
         return new TokenFilter();
     }
-
 
 }

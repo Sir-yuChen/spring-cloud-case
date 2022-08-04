@@ -8,10 +8,6 @@ import org.springframework.messaging.support.MessageBuilder;
 
 import java.util.UUID;
 
-
-/**
- * @author Administrator
- */
 //注意service的实现类中不再需要@Service注解，因为这个service不再是传统意义上的和Controller、DAO数据等进行交互的service，而是要绑定绑定器打交道的service。
 @EnableBinding(Source.class) //定义消息的推送管道
 public class MessageProviderImpl implements IMessageProvider {
@@ -26,5 +22,4 @@ public class MessageProviderImpl implements IMessageProvider {
         System.out.println("====Produce springCloud stream 发送消息:====>:" + serial);
         return send;
     }
-
 }

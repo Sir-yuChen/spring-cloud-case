@@ -6,15 +6,15 @@ spring:
     name: cloud-case-gateway
   profiles:
     active: prod
-# 路由断言 配置文件格式
+# 路由断言 配置文件格式 还可以使用编码式，两者二选一
 #  cloud:
 #    gateway:
 #      routes:
 #        - id: payment_route # 路由的id,没有规定规则但要求唯一,建议配合服务名
 #          #匹配后提供服务的路由地址
-#          uri: http://localhost:8096
+#          uri: http://localhost:8096 # 可是要服务名
 #          predicates:
-#            - Path=/payment/hystrix/** # 断言，路径相匹配的进行路由
+#            - Path=/payment/hystrix/** # 断言，路径相匹配的进行路由 根据路由正则匹配
 #        - id: payment_route2
 #          uri: http://localhost:8092
 #          predicates:

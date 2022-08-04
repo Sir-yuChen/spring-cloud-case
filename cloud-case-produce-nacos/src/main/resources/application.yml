@@ -1,0 +1,12 @@
+server:
+  port: 8065
+logging:
+  file:
+    path: D:/elasticsearch/logs
+  config: classpath:logback-spring.xml
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

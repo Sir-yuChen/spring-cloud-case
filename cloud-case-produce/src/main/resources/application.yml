@@ -38,7 +38,7 @@ spring:
           content-type: text/plain
           # 绑定的binder
           binder: spring-clould-stream-binder
-          # 将消息发送固定组
+          # 将消息发送固定组 保证消息的幂等性，避免消息重复消费
           group: A
   profiles:
     active: prod
